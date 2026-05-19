@@ -1,84 +1,69 @@
-import { HeroSection, TokenCards, WhitelistForm } from './components';
-import './App.css';
+import { HeroSection } from './components/HeroSection';
+import { TokenGrid } from './components/TokenGrid';
 
 function App() {
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-xl border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold">EP</span>
-            </div>
-            <span className="text-xl font-bold">Elevated Protocols</span>
-          </div>
-          <div className="flex items-center gap-4">
-            <a href="#ecosystem" className="text-white/60 hover:text-white transition-colors">
-              Ecosystem
-            </a>
-            <a href="#whitelist" className="text-white/60 hover:text-white transition-colors">
-              Whitelist
-            </a>
-            <button className="px-4 py-2 bg-orange-500 hover:bg-orange-600 rounded-lg font-semibold transition-colors">
-              Connect Wallet
-            </button>
-          </div>
-        </div>
-      </nav>
-
+    <div className="min-h-screen bg-gradient-to-b from-slate-950 to-slate-900">
       {/* Hero Section */}
-      <section className="pt-20">
-        <HeroSection />
-      </section>
+      <HeroSection />
 
-      {/* Token Cards Section */}
-      <section id="ecosystem" className="scroll-mt-20">
-        <TokenCards />
-      </section>
+      {/* Token Grid Section */}
+      <section className="relative z-10 px-6 sm:px-8 lg:px-12 py-20 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-4xl sm:text-5xl font-bold text-white">
+              Explore Our Protocols
+            </h2>
+            <p className="text-lg text-white/60 max-w-2xl mx-auto">
+              Six powerful financial instruments designed for sustainable wealth building and long-term value creation.
+            </p>
+          </div>
 
-      {/* Whitelist Form Section */}
-      <section id="whitelist" className="scroll-mt-20">
-        <WhitelistForm />
+          {/* Token Grid */}
+          <TokenGrid />
+        </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-950 border-t border-white/10 py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <footer className="relative z-10 border-t border-white/10 bg-slate-950/50 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <h4 className="font-bold text-white mb-4">Elevated Protocols</h4>
-              <p className="text-white/60 text-sm">
-                Sustainable wealth management through real-world data integration.
+            <div className="space-y-4">
+              <h3 className="text-white font-bold">Elevated Protocols</h3>
+              <p className="text-sm text-white/60">
+                Building the future of sustainable finance on Layer 2.
               </p>
             </div>
-            <div>
-              <h4 className="font-bold text-white mb-4">Resources</h4>
+            <div className="space-y-4">
+              <h4 className="text-white font-semibold text-sm">Resources</h4>
               <ul className="space-y-2 text-sm text-white/60">
                 <li><a href="#" className="hover:text-white transition-colors">Documentation</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Whitepaper</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">FAQ</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">GitHub</a></li>
               </ul>
             </div>
-            <div>
-              <h4 className="font-bold text-white mb-4">Community</h4>
+            <div className="space-y-4">
+              <h4 className="text-white font-semibold text-sm">Community</h4>
               <ul className="space-y-2 text-sm text-white/60">
                 <li><a href="#" className="hover:text-white transition-colors">Discord</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Twitter</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Telegram</a></li>
               </ul>
             </div>
-            <div>
-              <h4 className="font-bold text-white mb-4">Legal</h4>
+            <div className="space-y-4">
+              <h4 className="text-white font-semibold text-sm">Legal</h4>
               <ul className="space-y-2 text-sm text-white/60">
-                <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Terms</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Privacy</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Disclaimer</a></li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-white/10 pt-8 text-center text-white/60 text-sm">
+
+          <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center text-sm text-white/60">
             <p>&copy; 2026 Elevated Protocols. All rights reserved.</p>
+            <p>Built on Base L2 • Powered by Ethereum</p>
           </div>
         </div>
       </footer>

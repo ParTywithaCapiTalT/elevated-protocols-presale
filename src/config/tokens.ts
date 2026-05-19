@@ -90,14 +90,14 @@ export const TOKEN_LIST: Token[] = [
 ];
 
 export const PRESALE_CONFIG = {
-  startTime: new Date("2026-05-20T21:30:00").getTime(), // Tuesday 9:30 PM
+  startTime: new Date("2026-05-22T21:30:00").getTime(), // Friday 9:30 PM
   whitelistPhase: {
-    start: new Date("2026-05-20T21:30:00").getTime(),
-    end: new Date("2026-05-23T23:59:59").getTime(), // Through Friday
+    start: new Date("2026-05-22T21:30:00").getTime(),
+    end: new Date("2026-05-24T23:59:59").getTime(), // Through Sunday
   },
   publicPhase: {
-    start: new Date("2026-05-24T00:00:00").getTime(), // Saturday
-    end: new Date("2026-05-31T23:59:59").getTime(),
+    start: new Date("2026-05-25T00:00:00").getTime(), // Monday
+    end: new Date("2026-06-01T23:59:59").getTime(),
   },
-  appLaunch: new Date("2026-06-01T00:00:00").getTime(),
+  appLaunch: new Date("2026-06-02T00:00:00").getTime(),
 };

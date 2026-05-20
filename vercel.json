@@ -2,6 +2,10 @@
   "version": 2,
   "public": true,
   "name": "elevate-protocols",
+  "cleanUrls": true,
   "buildCommand": "npm run build",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ]
 }

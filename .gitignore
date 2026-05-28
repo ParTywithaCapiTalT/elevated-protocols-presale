@@ -26,6 +26,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
+elevated-protocols-presale-dist.zip
 .env
 .vite

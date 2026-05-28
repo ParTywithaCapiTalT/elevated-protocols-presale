@@ -4,7 +4,9 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   logLevel: 'error',
-  base: '/elevated-protocols-presale/',   // ← Add this line
+  
+  // Important for GitHub Pages / Vercel subpath deployment
+  base: '/elevated-protocols-presale/',
 
   plugins: [
     base44({

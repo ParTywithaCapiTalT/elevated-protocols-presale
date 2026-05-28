@@ -11,9 +11,10 @@ import Home from './pages/Home';
 import Layout from './components/Layout';
 // Add page imports here
 
-const AuthenticatedApp = () => {
+const AppRoutes = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
 
+  // 1. Handle Global Loading States
   if (isLoadingPublicSettings || isLoadingAuth) {
     return (
       <div className="fixed inset-0 flex items-center justify-center">
@@ -22,23 +23,30 @@ const AuthenticatedApp = () => {
     );
   }
 
-  if (authError) {
-    if (authError.type === 'user_not_registered') {
-      return <UserNotRegisteredError />;
-    } else if (authError.type === 'auth_required') {
-      navigateToLogin();
-      return null;
-    }
+  // 2. Handle Specific Non-Registered Edge Case
+  if (authError?.type === 'user_not_registered') {
+    return <UserNotRegisteredError />;
   }
 
   return (
     <Routes>
-      <Route element={<Layout />}>
+      {/* PUBLIC ROUTES (No Auth Required) */}
+      <Route path="/ResetPassword" element={<ResetPassword />} />
+      <Route path="/Register" element={<Register />} />
+
+      {/* PROTECTED ROUTES (Requires Auth) */}
+      <Route 
+        element={
+          authError?.type === 'auth_required' 
+            ? (navigateToLogin(), null) // Redirects if auth fails
+            : <Layout />
+        }
+      >
         <Route path="/" element={<Home />} />
-        <Route path="/ResetPassword" element={<ResetPassword />} />
-        <Route path="/Register" element={<Register />} />
-        {/* Add your page Route elements here */}
+        {/* Add your protected page Route elements here */}
       </Route>
+
+      {/* FALLBACK */}
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
@@ -49,7 +57,7 @@ function App() {
     <AuthProvider>
       <QueryClientProvider client={queryClientInstance}>
         <Router>
-          <AuthenticatedApp />
+          <AppRoutes />
         </Router>
         <Toaster />
       </QueryClientProvider>
@@ -57,4 +65,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

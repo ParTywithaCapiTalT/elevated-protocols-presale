@@ -1,23 +1,20 @@
-import * as React from "react"
-import * as SeparatorPrimitive from "@radix-ui/react-separator"
-
-import { cn } from "@/lib/utils"
-
-const Separator = React.forwardRef((
-  { className, orientation = "horizontal", decorative = true, ...props },
-  ref
-) => (
-  <SeparatorPrimitive.Root
+const SelectSeparator = React.forwardRef(({ className, ...props }, ref) => (
+  <SelectPrimitive.Separator
     ref={ref}
-    decorative={decorative}
-    orientation={orientation}
-    className={cn(
-      "shrink-0 bg-border",
-      orientation === "horizontal" ? "h-[1px] w-full" : "h-full w-[1px]",
-      className
-    )}
-    {...props} />
+    className={cn("-mx-1 my-1 h-px bg-muted", className)}
+    {...props}
+  />
 ))
-Separator.displayName = SeparatorPrimitive.Root.displayName
+SelectSeparator.displayName = SelectPrimitive.Separator.displayName
 
-export { Separator }
+// Export standard Select components, NOT the layout Separator!
+export {
+  Select,
+  SelectGroup,
+  SelectValue,
+  SelectTrigger,
+  SelectContent,
+  SelectLabel,
+  SelectItem,
+  SelectSeparator, // <--- This belongs here, not the layout one
+}

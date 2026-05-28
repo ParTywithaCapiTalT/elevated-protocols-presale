@@ -1,9 +1,15 @@
+import globals from "globals";
+import pluginJs from "@eslint/js";
+import pluginReact from "eslint-plugin-react";
+import pluginReactHooks from "eslint-plugin-react-hooks";
+import pluginUnusedImports from "eslint-plugin-unused-imports";
+
 export default [
   {
-    // 1. Tell ESLint to check EVERY .js and .jsx file inside your src directory
+    // Scans all JavaScript and JSX files in the entire src directory
     files: ["src/**/*.{js,mjs,cjs,jsx}"],
     
-    // 2. Clear out the folder bans so it can read your /ui and /lib files
+    // Prevents ESLint from scanning production builds and packages
     ignores: ["node_modules/**", "dist/**"],
     
     ...pluginJs.configs.recommended,
@@ -19,6 +25,32 @@ export default [
         }
       }
     },
-    // Keep your existing plugins and rules settings intact below this...
+    plugins: {
+      react: pluginReact,
+      "react-hooks": pluginReactHooks,
+      "unused-imports": pluginUnusedImports,
+    },
+    rules: {
+      "no-unused-vars": "off",
+      "react/jsx-uses-vars": "error",
+      "react/jsx-uses-react": "error",
+      "unused-imports/no-unused-imports": "error",
+      "unused-imports/no-unused-vars": [
+        "warn",
+        {
+          vars: "all",
+          varsIgnorePattern: "^_",
+          args: "after-used",
+          argsIgnorePattern: "^_",
+        },
+      ],
+      "react/prop-types": "off",
+      "react/react-in-jsx-scope": "off",
+      "react/no-unknown-property": [
+        "error",
+        { ignore: ["cmdk-input-wrapper", "toast-close"] },
+      ],
+      "react-hooks/rules-of-hooks": "error",
+    }
   }
 ];

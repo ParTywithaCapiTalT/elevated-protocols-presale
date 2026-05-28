@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "symbol": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "typical_allocation_min": {
+      "type": "number"
+    },
+    "typical_allocation_max": {
+      "type": "number"
+    },
+    "icon_url": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    }
+  },
+  "required": [],
+  "name": "Index"
+}

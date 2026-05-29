@@ -7,8 +7,7 @@
     "types": ["vite/client"],
     "skipLibCheck": true,
 
-    /* Path Aliases mapping '@/' to 'src/' */
-    "baseUrl": ".",
+    /* Modern Path Aliases mapping '@/' to 'src/' without baseUrl */
     "paths": {
       "@/*": ["./src/*"]
     },

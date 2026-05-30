@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Lock, TrendingUp, Zap, Shield } from "lucide-react";
-import WaitlistForm from "@/components/WaitlistForm";
 
 /* ─── Hero ───────────────────────────────────────────────── */
 function HeroSection() {
@@ -298,7 +297,6 @@ export default function Home() {
       <LockedStatsPreview />
       <LockedIndexPreview />
       <LockedFeaturesPreview />
-      <WaitlistForm />
     </div>
   );
 }
